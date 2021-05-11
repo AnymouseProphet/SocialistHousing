@@ -1,2 +1,7 @@
-# SocialistHousing
-A manifesto to fix the housing crisis in the United States of America
+PLACEHOLDER
+===========
+
+This repo will be populated with LaTeX files when manifesto is ready to be
+published.
+
+
