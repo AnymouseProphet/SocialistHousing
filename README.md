@@ -89,8 +89,9 @@ PDF that only differs from the canonical version in that it lacks the __Digital
 Cryptography Signature__ appendix section. That copy is intended for printed
 versions where a digital cryptography signature is meaningless.
 
-Nothing in the `assets` directory is used to compile the manifesto.
-
+Nothing in the `assets` directory is used to compile the manifesto. After you
+fork this git, you probably should delete everything in the `assets` directory
+as it will not pertain to your fork.
 
 
 TeXLive 2021
