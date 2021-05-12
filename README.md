@@ -5,6 +5,33 @@ This repo will be populated with LaTeX files when manifesto is ready to be
 published.
 
 
+Github Directory Structure
+--------------------------
+
+The top directory of this git has the main `SocialistHousing.tex` file, the
+`LICENSE.txt` file, and various [markdown](https://daringfireball.net/projects/markdown/)
+text files (including this README).
+
+The `SocialistHousing.tex` file is the only file in the top level directory that
+is used to compile the manifesto.
+
+The `appendix` directory has the LaTeX source files for the appendix section of
+the manifesto.
+
+The `inputfiles` directory has the LaTeX source files for the non-appendix
+sections of the manifesto.
+
+The `assets` directory has the public cryptography key (in both `.pem` and
+`.p7b`) that the author uses to digitally sign PDF files, a PDF copy of the
+canonical version of the manifesto that is signed, and an unsigned copy of the
+PDF that only differs from the canonical version in that it lacks the __Digital
+Cryptography Signature__ appendix section. That copy is intended for printed
+versions where a digital cryptography signature is meaningless.
+
+Nothing in the `assets` directory is used to compile the manifesto.
+
+
+
 TeXLive 2021
 ------------
 
