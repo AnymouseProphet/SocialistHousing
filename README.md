@@ -5,6 +5,62 @@ This repo will be populated with LaTeX files when manifesto is ready to be
 published.
 
 
+Forking the Manifesto
+---------------------
+
+The manifesto is released under the terms of the CC BY-NC 4.0 license (see the
+`LICENSE.txt` file) which---if the terms of the license are met---allows you to
+modify this manifesto (what I call a fork) and distribute your modified version.
+
+Why anyone would want to? I do not *expect* anyone to, but you can.
+
+Maybe you want to add details about plumbing best practices to the __House
+Retrofitting__ section. Maybe you want to clarify some of my points that are a
+bit confusing. Maybe Sean Hannity paid you a bunch of money to annotate the
+manifesto with counter points showing how stupid I am.
+
+Whatever your reason, as long as the terms of the license are followed, it is
+allowed. For those who are able to work with LaTeX---having the LaTeX source
+available makes it a lot easier than copypasta from the PDF.
+
+### Translations
+
+Me encantaría ver este manifiesto traducido al español.
+
+De hecho, si lo hace, avíseme y, si la traducción es buena, es posible que desee
+agregarle mi firma digital.
+
+### The Changelog
+
+Within `SocialistHousing.tex` a macro called `\canonical` is defined. It expands
+to a URL to the canonical version of this manifesto. Leave that alone.
+
+With `appendix/changelog.tex` is a place for you to add a description of what
+changes you made, so that it is clear to the reader that those changes are yours
+and not mine, in compliance with the CC BY-NC 4.0 license.
+
+By using that `appendix/changelog.tex` file to describe your changes and by
+keeping the reference to the canonical version intact, compliance with the
+CC BY-NC 4.0 license is much easier.
+
+There may be some changes you make that are not easily described in the
+`appendix/changelog.tex` file, but that is your problem.
+
+### Social Media and Bitcoin References
+
+Feel free to alter (or omit) the `appendix/social.tex` files---you do not need
+to plug my social media accounts or my bitcoin address. However, do remember to
+note that you did so in the `appendix/changelog.tex` file.
+
+### Title Page and Dedication
+
+The title page and dedication are defined within the `SocialistHousing.tex`
+file, they are not defined in separate input files.
+
+__Make sure to add yourself as an author__ and note any changes you make in the
+`appendix/changelog.tex` file.
+
+
 Github Directory Structure
 --------------------------
 
