@@ -92,9 +92,56 @@ Place it at `[TEXMF-LOCAl]/tex/latex/digsig/digsig.sty` and then run the
 `mktexlsr` command so that `pdflatex` will know about it.
 
 
+Base 35 Postscript Font Notes
+-----------------------------
 
+The canonical version has the following Adobe Type 1 fonts embedded:
 
+* Helvetica-Bold
+* Times-Roman
+* Times-Italic
+* Times-Bold
+* Times-BoldItalic
 
+This is because I happen to have the *actual* Adobe Type 1 fonts available for
+LaTeX to embed.
 
+Unless you both have the *actual* Adobe Type 1 fonts *and* have set up LaTeX to
+use them, then (assuming you have `mtpro.sty` so `times.sty` loads) your fork
+will use the free URW equivalents that ship with TeXLive.
+
+The URW equivalents are fully metric compatible and for the vast majority of us,
+they are visually indistinguishable from the Adobe versions.
+
+### Adobe Helvetica Note
+
+When you use Acrobat Reader DC to add a cryptographic signature, the software
+uses Helvetica but does not embed it.
+
+Thus far I have not been able to figure out how to get the font embedded into
+the PDF before signing---which means that the visual indication of the signature
+may display (or print) using Arial or some other awful Helvetica substitute on
+some systems.
+
+Apparently fonts used in form areas (which the digital signature is) have to be
+embedded *differently* than fonts used for regular content and I have yet to
+figure out how to get LaTeX to do that.
+
+From what I have read, PDF wants the *entire* font embedded rather than just a
+subset but also wants it embeddded using a particular structure within the PDF
+file. Otherwise it will not be used in the form content.
+
+I suspect it requires some LaTeX macros that have not yet been written. Well, to
+do it in LaTeX anyway.
+
+It would be nice if Acrobat Reader DC would embed the font it uses for visual
+indication when signing the document. But it doesn't. Maybe one of their
+profession PDF tools that costs money does.
+
+It would be nice if TeXLive came with software for adding the digital signature
+to the signature form field. But it doesn't. Maybe a typography programming
+student will take it on as a project. Then the visual indication of the
+signature could have a TeX Lion watermark instead of an Acrobat watermark. Or
+even better, the watermark could be configurable so we could make it a Red Rose.
 
 
