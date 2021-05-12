@@ -28,20 +28,16 @@ trust.
 To generate a self-signed certificate that will last 6500 days (just over 17 and
 a half years):
 
-    openssl req -new -key my_private_key.pem -x509 -nodes -days 6500 -out my_public_cert.pem
+    openssl req -new -key my_private_key.pem -x509 -nodes -days 6500 -out my_public_cert.crt
 
 It will ask some questions you may not want to honestly answer if you value
 anonymity. That is okay, it does not verify any of the answers you give.
-
-To convert the public certificate into the PKCS#7 format:
-
-    openssl crl2pkcs7 -nocrl -certfile my_public_cert.pem -out my_public_cert.p7b -certfile my_public_cert.pem
 
 Once you have the public key, you can generate a single file that contains
 *both* your private and public key that you can then import into Adobe Reader DC
 to sign your PDF files:
 
-    openssl pkcs12 -export -out for_adobe_reader.pfx -inkey my_private_key.pem -in my_public_cert.pem
+    openssl pkcs12 -export -out for_adobe_reader.pfx -inkey my_private_key.pem -in my_public_cert.crt
 
 This will ask you to create a password so the resulting `.pfx` is password
 protected. Import that file into Adobe Reader (on Windows or macOS) and with
