@@ -108,7 +108,7 @@ automatically generated (or updated) will be current for the final run.
 In reality running the command twice in succession should be sufficient but
 thrice does not hurt.
 
-The compiled result will be naned `SocialistHousing.pdf`.
+The compiled result will be named `SocialistHousing.pdf`.
 
 
 Base 35 Postscript Font Notes
