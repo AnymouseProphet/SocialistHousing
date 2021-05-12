@@ -46,6 +46,11 @@ CC BY-NC 4.0 license is much easier.
 There may be some changes you make that are not easily described in the
 `appendix/changelog.tex` file, but that is your problem.
 
+### Digital Cryptography Signature
+
+Exclusion or alteration of the `appendix/signature.tex` file __DOES NOT__
+require any notices within the `appendix/changelog.tex` file.
+
 ### Social Media and Bitcoin References
 
 Feel free to alter (or omit) the `appendix/social.tex` files---you do not need
