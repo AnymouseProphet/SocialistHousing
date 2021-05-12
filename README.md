@@ -96,7 +96,7 @@ Compiling the Manifesto
 -----------------------
 
 This manifesto is intended to be compiled using the `pdflatex` engine. The
-LaTeX *may* need modification to compile with a different LaTeX engine.
+LaTeX source *may* need modification to compile with a different LaTeX engine.
 
 The following should do it:
 
@@ -105,8 +105,10 @@ The following should do it:
 The reason multiple runs are needed are so that helper files that are
 automatically generated (or updated) will be current for the final run.
 
-In reality running the command twice should be sufficient but thrice does not
-hurt.
+In reality running the command twice in succession should be sufficient but
+thrice does not hurt.
+
+The compiled result will be naned `SocialistHousing.pdf`.
 
 
 Base 35 Postscript Font Notes
