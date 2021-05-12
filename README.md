@@ -107,7 +107,7 @@ This is because I happen to have the *actual* Adobe Type 1 fonts available for
 LaTeX to embed.
 
 Unless you both have the *actual* Adobe Type 1 fonts *and* have set up LaTeX to
-use them, then (assuming you have `mtpro.sty` so `times.sty` loads) your fork
+use them, then (assuming you have `mtpro2.sty` so `times.sty` loads) your fork
 will use the free URW equivalents that ship with TeXLive.
 
 The URW equivalents are fully metric compatible and for the vast majority of us,
