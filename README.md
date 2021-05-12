@@ -92,6 +92,23 @@ Place it at `[TEXMF-LOCAl]/tex/latex/digsig/digsig.sty` and then run the
 `mktexlsr` command so that `pdflatex` will know about it.
 
 
+Compiling the Manifesto
+-----------------------
+
+This manifesto is intended to be compiled using the `pdflatex` engine. The
+LaTeX *may* need modification to compile with a different LaTeX engine.
+
+The following should do it:
+
+    pdflatex SocialistHousing.tex && pdflatex SocialistHousing.tex && pdflatex SocialistHousing.tex
+
+The reason multiple runs are needed are so that helper files that are
+automatically generated (or updated) will be current for the final run.
+
+In reality running the command twice should be sufficient but thrice does not
+hurt.
+
+
 Base 35 Postscript Font Notes
 -----------------------------
 
