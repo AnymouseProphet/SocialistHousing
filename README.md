@@ -119,8 +119,8 @@ All of these are optional, the manifesto compiles without them.
 
 ### MathTime Pro 2 Lite
 
-This is a free LaTeX package for typesetting mathematical equations. It is
-available from:
+This is a free LaTeX package for typesetting mathematical equations that match
+the Times font. It is available from:
 [MathTime Professional 2 Fonts](https://www.pctex.com/mtpro2.html).
 
 The free 'Lite' version is sufficient for the use of math in the manifesto.
@@ -129,11 +129,15 @@ When the `pdflatex` compiler detects the style file for MathTime Pro 2 then it
 is instructed to load both `times.sty` (a standard package) and `mtpro2.sty`.
 
 Even though `times.sty` is a standard packages, `pdflatex` is only instructed to
-load it when `mtpro2.sty` is available because otherwise, math would be typeset
-using Computer Modern which does not visually match the Times font.
+load it when `mtpro2.sty` is available because otherwise, the body text would be
+typeset in Times but math would be typeset using Computer Modern which does not
+visually match the Times font very well.
 
 Follow the PCTeX instructions for installing MathTime Pro 2 Lite if you want
 to compile the document typeset in Times.
+
+If you like Computer Modern then do not install MathTime Pro 2 Lite and Computer
+Modern will be used for both the body font and the math font.
 
 ### Space Mono Font
 
