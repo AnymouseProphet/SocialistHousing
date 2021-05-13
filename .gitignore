@@ -1,11 +1,8 @@
 *~
-SocialistHousing.aux
-SocialistHousing.log
-SocialistHousing.out
-SocialistHousing.toc
+*.bak
+*.aux
+*.log
+*.out
+*.toc
 SocialistHousing.pdf
 SocialistHousing-Print.tex
-SocialistHousing-Print.aux
-SocialistHousing-Print.log
-SocialistHousing-Print.out
-SocialistHousing-Print.toc
