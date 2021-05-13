@@ -3,14 +3,22 @@
 # make the ISBN barcode
 if [ -f assets/isbn.tex ]; then
   mv appendix/changelog.tex appendix/changelog.txt
-  cd assets
-  /usr/local/texlive/2021/bin/x86_64-linux/latex isbn.tex
-  /usr/local/texlive/2021/bin/x86_64-linux/dvips -E -T 1.85in,1.15in isbn.dvi
-  mv isbn.ps isbn.eps
-  /usr/bin/ps2pdf isbn.eps isbn.pdf
-  rm -f isbn.dvi
-  rm -f isbn.eps
-  cd ../
+  if [ ! -f assets/isbn.pdf ]; then
+    cd assets
+    /usr/local/texlive/2021/bin/x86_64-linux/latex isbn.tex
+    if [ $? != 0 ]; then
+      echo "ISBN LaTeX error, exiting"
+      cd ..
+      [ -f appendix/changelog.txt ] && mv appendix/changelog.txt appendix/changelog.tex
+      exit 1
+    fi
+    /usr/local/texlive/2021/bin/x86_64-linux/dvips -E -T 1.85in,1.15in isbn.dvi
+    mv isbn.ps isbn.eps
+    /usr/bin/ps2pdf isbn.eps isbn.pdf
+    rm -f isbn.dvi
+    rm -f isbn.eps
+    cd ../
+  fi
 fi
 
 # test the LaTeX
@@ -21,12 +29,14 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
+# two more runs
 /usr/local/texlive/2021/bin/x86_64-linux/pdflatex SocialistHousing.tex
 /usr/local/texlive/2021/bin/x86_64-linux/pdflatex SocialistHousing.tex
 
 # make print version
 sed -e s?"digsig\.sty"?"FUBARdigsig.sty"?g < SocialistHousing.tex > SocialistHousing-Print.tex
 
+# three runs
 /usr/local/texlive/2021/bin/x86_64-linux/pdflatex SocialistHousing-Print.tex
 /usr/local/texlive/2021/bin/x86_64-linux/pdflatex SocialistHousing-Print.tex
 /usr/local/texlive/2021/bin/x86_64-linux/pdflatex SocialistHousing-Print.tex
