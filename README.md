@@ -83,11 +83,11 @@ The `inputfiles` directory has the LaTeX source files for the non-appendix
 sections of the manifesto.
 
 The `assets` directory has the public cryptography key that the author uses to
-digitally sign PDF files, a PDF copy of the canonical version of the manifesto
-that is signed, and an unsigned copy of the PDF that only differs from the
-canonical version in that it lacks the __Digital Cryptography Signature__
-appendix section. That copy is intended for printed versions where a digital
-cryptography signature is meaningless.
+digitally sign PDF files, and some branches may have a PDF copy of the canonical
+version of the manifesto that is signed, and an unsigned copy of the PDF that
+only differs from the canonical version in that it lacks the __Digital
+Cryptography Signature__ appendix section. That copy is intended for printed
+versions where a digital cryptography signature is meaningless.
 
 Nothing in the `assets` directory is used to compile the manifesto. After you
 fork this git, you probably should delete everything in the `assets` directory
