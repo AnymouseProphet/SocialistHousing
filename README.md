@@ -105,7 +105,11 @@ Many (most?) GNU/Linux distributions come with a packaged version of TeXLive
 already. I still prefer to install it myself in `/usr/local/texlive` but the
 packages that come with your distribution are probably sufficient.
 
-The manifesto should also compile in MacTeX, PCTeX, MiKTeX, et cetera.
+The manifesto *should* also compile in MacTeX, PCTeX, MiKTeX, et cetera.
+
+Originally I was working on the manifesto in TeXLive 2016. I only upgraded to
+TeXLive 2021 to make sure it would build in the modern version. The code I used
+is not that picky.
 
 
 Optional LaTeX Packages
