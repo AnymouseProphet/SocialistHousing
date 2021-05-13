@@ -1,11 +1,20 @@
 #!/bin/bash
 
-# move the changelog file
-[ -f canonical.tmp ]  mv appendix/changelog.tex appendix/changelog.txt
+# make the ISBN barcode
+if [ -f assets/isbn.tex ]; then
+  mv appendix/changelog.tex appendix/changelog.txt
+  cd assets
+  /usr/local/texlive/2021/bin/x86_64-linux/latex isbn.tex
+  /usr/local/texlive/2021/bin/x86_64-linux/dvips -E -T 1.85in,1.15in isbn.dvi
+  mv isbn.ps isbn.eps
+  /usr/bin/ps2pdf isbn.eps isbn.pdf
+  rm -f isbn.dvi
+  rm -f isbn.eps
+  cd ../
+fi
 
 # test the LaTeX
 /usr/local/texlive/2021/bin/x86_64-linux/pdflatex SocialistHousing.tex
-
 if [ $? != 0 ]; then
   [ -f appendix/changelog.txt ] && mv appendix/changelog.txt appendix/changelog.tex
   echo "LaTeX error, exiting"
@@ -24,7 +33,6 @@ sed -e s?"digsig\.sty"?"FUBARdigsig.sty"?g < SocialistHousing.tex > SocialistHou
 
 # cleanup
 rm -f SocialistHousing-Print.tex
-rm -f canonical.tmp
 mv SocialistHousing-Print.pdf assets/
 [ -f appendix/changelog.txt ] && mv appendix/changelog.txt appendix/changelog.tex
 
