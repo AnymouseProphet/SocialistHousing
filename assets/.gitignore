@@ -1,6 +1,3 @@
 # remove these from .gitignore file before release
 SocialistHousing-Print.pdf
 SocialistHousing-Canonical.pdf
-# keep these
-isbn.tex
-isbn.pdf
