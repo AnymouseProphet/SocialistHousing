@@ -24,7 +24,7 @@ sed -e s?"^\\\newcommand{\\\versionforprint}{no}"?"\\\newcommand{\\\versionforpr
 /usr/local/texlive/2021/bin/x86_64-linux/pdflatex SocialistHousing-Print.tex
 
 # cleanup
-rm -f SocialistHousing-Print.tex
+rm -f SocialistHousing-Print.tex canonical.tmp
 mv SocialistHousing-Print.pdf assets/
 [ -f appendix/changelog.txt ] && mv appendix/changelog.txt appendix/changelog.tex
 
