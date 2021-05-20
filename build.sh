@@ -15,8 +15,8 @@ fi
 /usr/local/texlive/2021/bin/x86_64-linux/pdflatex SocialistHousing.tex
 /usr/local/texlive/2021/bin/x86_64-linux/pdflatex SocialistHousing.tex
 
-# make print version
-sed -e s?"^\\\newcommand{\\\versionforprint}{no}"?"\\\newcommand{\\\versionforprint}{yes}"? < SocialistHousing.tex > SocialistHousing-Print.tex
+# make non-canonical print version
+sed -e s?"^\\\newcommand{\\\canonicalversion}{yes}"?"\\\newcommand{\\\canonicalversion}{no}"? < SocialistHousing.tex > SocialistHousing-Print.tex
 
 # three runs
 /usr/local/texlive/2021/bin/x86_64-linux/pdflatex SocialistHousing-Print.tex
