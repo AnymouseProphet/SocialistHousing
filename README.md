@@ -1,8 +1,9 @@
 PLACEHOLDER
 ===========
 
-This repo will be populated with LaTeX files when manifesto is ready to be
-published.
+This repo is slowly being populated with LaTeX files as the manifesto is getting
+ready to be published. A new branch for the Canonical version will be created
+when all is ready.
 
 
 Forking the Manifesto
@@ -97,7 +98,7 @@ as it will not pertain to your fork.
 TeXLive 2021
 ------------
 
-Tha Canonical version of this manifesto was compiled using
+The Canonical version of this manifesto was compiled using
 [TeXLive 2021](https://www.tug.org/texlive/)
 installed from their [Network Installer](https://www.tug.org/texlive/acquire-netinstall.html).
 
@@ -170,7 +171,7 @@ you to add a cryptographic digital signature.
 To the best of my knowledge, at this time `pdflatex` and LaTeX in general are
 not able to add the signature themselves but you can open the compiled document
 in [Acrobat Reader DC](https://acrobat.adobe.com/us/en/acrobat/pdf-reader.html)
-to add your digital signature. Scroll to the end of the document and ckick the
+to add your digital signature. Scroll to the end of the document and click the
 thing that looks like a pencil where the __Visual Indication of Signature:__
 heading is.
 
@@ -214,17 +215,20 @@ Base 35 Postscript Font Notes
 The canonical version has the following Adobe Type 1 fonts embedded:
 
 * Helvetica-Bold
+* Helvetica-Narrow
 * Times-Roman
 * Times-Italic
 * Times-Bold
 * Times-BoldItalic
+* ZapfChancery-MediumItalic
 
 This is because I happen to have the *actual* Adobe Type 1 fonts available for
 LaTeX to embed.
 
 Unless you both have the *actual* Adobe Type 1 fonts *and* have set up LaTeX to
 use them, then (assuming you have `mtpro2.sty` so `times.sty` loads) your fork
-will use the free URW equivalents that ship with TeXLive.
+will use the free URW equivalents that ship with TeXLive or whatever LaTeX
+distribution you use.
 
 The URW equivalents are fully metric compatible and for the vast majority of us,
 they are visually indistinguishable from the Adobe versions.
@@ -244,7 +248,7 @@ embedded *differently* than fonts used for regular content and I have yet to
 figure out how to get LaTeX to do that.
 
 From what I have read, PDF wants the *entire* font embedded rather than just a
-subset but also wants it embeddded using a particular structure within the PDF
+subset but also wants it embedded using a particular structure within the PDF
 file. Otherwise it will not be used in the form content.
 
 I suspect it requires some LaTeX macros that have not yet been written. Well, to
@@ -259,5 +263,6 @@ to the signature form field. But it doesn't. Maybe a typography programming
 student will take it on as a project. Then the visual indication of the
 signature could have a TeX Lion watermark instead of an Acrobat watermark. Or
 even better, the watermark could be configurable so we could make it a Red Rose.
+Well, as a watermark, likely a light pink rose...
 
 
