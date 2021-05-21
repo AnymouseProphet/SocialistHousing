@@ -20,7 +20,7 @@ sed -e s?"^\\\newcommand{\\\canonicalversion}{yes}"?"\\\newcommand{\\\canonicalv
 /usr/local/texlive/2021/bin/x86_64-linux/pdflatex SocialistHousing-Print.tex
 
 # cleanup
-rm -f SocialistHousing-Print.tex canonical.tmp
+rm -f SocialistHousing-Print.tex
 mv SocialistHousing-Print.pdf assets/
 
 echo && echo && echo
