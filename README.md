@@ -237,11 +237,16 @@ With high frequency on places like reddit, I see bad advice given to never use
 `times.sty` with claims that it is deprecated and that the *proper* way to get
 the Times font in LaTeX is to use `mathptmx.sty`.
 
+Look at the `times.sty` file, all it does is redefine `\sfdefault`,
+`\rmdefault`, and `\ttdefault`. That is literally __all that it does__. There is
+absolutely nothing about that to become "obsolete", the method it uses is the
+correct way to redefine those defaults.
+
 Social media is full of bad advice. The only issue with `times.sty` is that it
-does not define a font to use for math, so the default Computer Modern math font
-ends up being used if you use `times.sty` and have math in your LaTeX *without*
-defining a Times compatible math font. That does look ugly, especially if you
-have any inline math.
+does *not* redefine fonts to use for math, so the default Computer Modern math
+fonts ends up being used if you use `times.sty` and have math in your LaTeX
+*without* defining a Times compatible math font. That does look ugly, especially
+if you have any inline math.
 
 That issue is readily solved by using `mtpro2.sty` to define the math font after
 you load `times.sty` in your preamble. MathTime Pro 2 is superior to the math
