@@ -156,22 +156,41 @@ that the pagination differs when you change the main body font.
 
 #### For the plethora of n00bs who say `times.sty` should not be used:
 
-Yes, the math in this document is light enough I could have also used
-`mathptmx.sty` or `newtx.sty` to get the Times font with matching math glyphs.
-But with many documents that use math, using `mtpro2.sty` in combination with
-the `times.sty` package really is noticeably better.
+With high frequency on places like reddit, I see bad advice given to never use
+`times.sty` with claims that is deprecated and that the *proper* way to get the
+Times font in LaTeX is to use `mathptmx.sty` or more recently `newtx.sty`.
+
+Social media is full of bad advice. The only issue with `times.sty` is that it
+does not define a font to use for math, so the default Computer Modern math font
+ends up being used if you use `times.sty` and have math in your LaTeX *without*
+defining a Times compatible math font. That does look ugly, especially if you
+have any inline math.
+
+That issue is readily solved by using `mtpro2.sty` to define the math font after
+you load `times.sty` in your preamble. MathTimePro 2 is superior to the math
+fonts defined by either `mathptmx.sty` or `newtx.sty`.
+
+Yes, the math in this document is light enough I could have used `mathptmx.sty`
+or `newtx.sty` to get the Times font with matching math glyphs. But with many
+documents that use math, using `mtpro2.sty` in combination with the `times.sty`
+package really is noticeably better.
 
 MathTimePro 2 can beautifully typeset everything math those alternatives can
 typeset but the reverse is not the case and I never know when I'll use something
 MathTimePro 2 is better at so it is logical to just always use the standard
-`times.sty` package with the `mtpro2.sty` package for math regardless of what
-math is in the document.
+`times.sty` package with the `mtpro2.sty` package for math with the Times font
+*regardless* of what math is in the document.
 
 If you want to use the Times font and Math, use MathTimePro2 for the math font.
-It is the right way to do it, and in many cases it visually looks better. Use
-the free Lite version until you need the additional features of the paid
-version. It really is typographically better than the current CTAN hosted
-solutions that come bundled in TeXLive et alia.
+__It is the visually best way to do it__ as evidenced by the fact that many
+academic journals use MathTimePro 2.
+
+If you are making a profit or can afford it, buy the paid version and support
+PCTeX who maintains it. If you are poor, there is no shame in just using the
+free Lite version until you need the additional features of the paid version.
+
+MathTimePro 2 really is typographically better for Math with Times than the
+current CTAN hosted solutions that come bundled in TeXLive et alia. It just is.
 
 ### Space Mono Font
 
@@ -242,8 +261,40 @@ The compiled result will be named `SocialistHousing.pdf`.
 Base 35 Postscript Font Notes
 -----------------------------
 
-The canonical version has font subsets from the following Adobe Type 1 fonts
-embedded:
+If you compile the LaTeX source yourself you may notice different font names are
+used in your resulting PDF file. There is a reason for this.
+
+The Postscript Level 2 specification specifies 35 fonts that are often known as
+the 'Base 35' fonts.
+
+https://en.wikipedia.org/wiki/PostScript_fonts#Core_Font_Set
+
+Back in the days before storage and bandwidth were cheap, it was safe to save
+space in a document and not embed these fonts as long as the output device (e.g.
+printer) was a Postscript Level 2 compliant renderer.
+
+Note that Postscript Level 3 fonts is a mess that few adopted even though
+Postscript 3 was popular. They forgot KISS. Too many fonts and licensing issues,
+people who wanted to avoid embedding just stuck with the Level 2 fonts in their
+postscript 3 documents.
+
+Also note that PDF is not Postscript but all of the PDF 'Standard 14' fonts are
+part of the 'Base 35' Postscript Level 2 fonts and in the world of LaTeX we just
+use the 'Base 35' Postscript Level 2 fonts as our standard set because a LaTeX
+document can produce either Postscript or PDF (or DVI for old-school LaTeX in
+the days before Postscript).
+
+Now that file size and network bandwidth are no longer and issue it is standard
+to embed all fonts so that documents render properly *even if the output device
+is not a Postscript Level 2 compliant renderer*. Embedding the fonts really is
+better because otherwise some renderers will use substitutes that look just
+awful (e.g. substituting Arial for Helvetica).
+
+Embedding fonts can have font licensing issues. No font licensing issues for
+fonts exist in this manifesto.
+
+The canonical version of this manifesto has font subsets from the following
+'Base 35' Adobe Type 1 fonts embedded:
 
 * Helvetica-Bold
 * Helvetica-Narrow
@@ -256,15 +307,32 @@ embedded:
 * ZapfChancery-MediumItalic
 
 This is because I happen to have the *actual* Adobe Type 1 fonts available for
-LaTeX to embed.
+LaTeX to embed. During the late 90s I purchased the fonts as part of a bundle
+sold to students and it allows embedding the fonts in distributed documents.
+
+The three Helvetica-Narrow fonts and the ZapfChancery font are used even if you
+use the Latin Modern family as the main font. Helvetica-Bold and the four Times
+fonts are only used when the Times family is the main font.
+
+If you are not using Space Mono but Times is your main font, then the Adobe
+font Courier from the Base 35 collection will also be used.
 
 Unless you both have the *actual* Adobe Type 1 fonts *and* have set up LaTeX to
-use them, then (assuming you have `mtpro2.sty` so `times.sty` loads) your fork
-will use the free URW equivalents that ship with TeXLive or whatever LaTeX
-distribution you use.
+use them, then your fork will use the free URW equivalents that ship with
+TeXLive or whatever LaTeX distribution you use.
 
 The URW equivalents are fully metric compatible and for the vast majority of us,
-they are visually indistinguishable from the Adobe versions.
+they are visually indistinguishable from the Adobe versions. They are quality
+substitutes.
+
+The URW equivalents were designed when there was a clear need to implement
+Postscript Level 2 for those who did not have a license to the actual Adobe
+fonts. URW did an outstanding job with them and they are now common on UNIX
+systems as part of
+[ghostscript](https://www.ghostscript.com/)
+and the URW fonts are also now distributed with most LaTeX distributions with
+the LaTeX postscript and PDF engines using them by default when 'Base35' fonts
+are requested but the user does not have the actual Adobe font files.
 
 ### Adobe Helvetica Note
 
