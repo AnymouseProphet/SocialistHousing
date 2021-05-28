@@ -220,7 +220,7 @@ want to compile the document typeset in Times. Otherwise, the TeXGrye family of
 extended clones will be used.
 
 If you like the TeXGyre family of clones (many do) then either do not install
-MathTimePro 2 Lite or if it is already installed, in the preamble change
+MathTime Pro 2 Lite or if it is already installed, in the preamble change
 
     \IfFileExists{mtpro2.sty}{%
 
@@ -244,29 +244,29 @@ defining a Times compatible math font. That does look ugly, especially if you
 have any inline math.
 
 That issue is readily solved by using `mtpro2.sty` to define the math font after
-you load `times.sty` in your preamble. MathTimePro 2 is superior to the math
-fonts defined by either `mathptmx.sty` or `newtx.sty`.
+you load `times.sty` in your preamble. MathTime Pro 2 is superior to the math
+fonts defined by either `mathptmx.sty` or `newtxmath.sty`.
 
 Yes, the math in this document is light enough I could have used `mathptmx.sty`
 to get the Times font with matching math glyphs. But with many documents that
 use math, using `mtpro2.sty` in combination with the `times.sty` package really
 is noticeably better.
 
-MathTimePro 2 can beautifully typeset everything math those alternatives can
+MathTime Pro 2 can beautifully typeset everything math those alternatives can
 typeset but the reverse is not the case and I never know when I'll use something
-MathTimePro 2 is better at so it is logical to just always use the standard
+MathTime Pro 2 is better at so it is logical to just always use the standard
 `times.sty` package with the `mtpro2.sty` package for math with the Times font
 *regardless* of what math is in the document.
 
-If you want to use the Times font and Math, use MathTimePro2 for the math font.
+If you want to use the Times font and Math, use MathTime Pro2 for the math font.
 __It is the visually best way to do it__ as evidenced by the fact that many
-academic journals use MathTimePro 2.
+academic journals use MathTime Pro 2.
 
 If you are making a profit or can afford it, buy the paid version and support
 PCTeX who maintains it. If you are poor, there is no shame in just using the
 free Lite version until you need the additional features of the paid version.
 
-MathTimePro 2 really is typographically better for Math with Times than the
+MathTime Pro 2 really is typographically better for Math with Times than the
 current CTAN hosted solutions that come bundled in TeXLive et alia. It just is.
 
 ### Space Mono Font
@@ -340,7 +340,7 @@ Base 35 Postscript Font Notes
 -----------------------------
 
 This section only applies if you are __not__ using Latin Modern and you __do__
-have the\ `mtpro2.sty` package. Without those conditions then your compiled
+have the `mtpro2.sty` package. Without those conditions then your compiled
 version will obviously have different fonts than what my canonical version has.
 
 If you compile the LaTeX source yourself you may notice different font names are
