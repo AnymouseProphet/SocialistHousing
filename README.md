@@ -55,7 +55,7 @@ require any notices within the `appendix/changelog.tex` file.
 ### Social Media and Bitcoin References
 
 Feel free to alter (or omit) the `appendix/social.tex` files---you do not need
-to plug my social media accounts or my bitcoin address. However, do remember to
+to plug my social media accounts or my Bitcoin address. However, do remember to
 note that you did so in the `appendix/changelog.tex` file.
 
 ### Title Page and Dedication
@@ -171,7 +171,7 @@ and also change
 
     \newcommand{\lccn}{987654321}
 
-to define *your* LCCN number. This will typset the LCCN on the dedication page.
+to define *your* LCCN number. This will typeset the LCCN on the dedication page.
 
 ### ISBN Number
 
