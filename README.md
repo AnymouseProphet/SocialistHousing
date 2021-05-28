@@ -135,14 +135,37 @@ is instructed to load both `times.sty` (a standard package) and `mtpro2.sty`.
 
 Even though `times.sty` is a standard packages, `pdflatex` is only instructed to
 load it when `mtpro2.sty` is available because otherwise, the body text would be
-typeset in Times but math would be typeset using Computer Modern which does not
-visually match the Times font very well.
+typeset in Times but math would be typeset using a Computer Modern variant which
+does not visually match the Times font very well.
 
 Follow the PCTeX instructions for installing MathTime Pro 2 Lite if you want
-to compile the document typeset in Times.
+to compile the document typeset in Times. Otherwise, Latin Modern (an update to
+Computer Modern) is used.
 
-If you like Computer Modern then do not install MathTime Pro 2 Lite and Computer
-Modern will be used for both the body font and the math font.
+If you like Latin Modern then either do not install MathTime Pro 2 Lite or if
+it is already installed, change
+
+    \IfFileExists{mtpro2.sty}{%
+
+to
+
+    \IfFileExists{FOOmtpro2.sty}{%
+
+Then Latin Modern will be used for both the body font and the math font. Note
+that the pagination differs when you change the main body font.
+
+#### For the plethora of n00bs who say `times.sty` should not be used:
+
+Yes, the math in this document is light enough I could have also used
+`mathptmx.sty` or `newtx.sty` to get the Times font with matching math glyphs.
+But with many documents that use math, using `mtpro2.sty` in combination with
+the `times.sty` package really is noticeably better.
+
+MathTimePro 2 can beautifully typeset everything math those alternatives can
+typeset but the reverse is not the case and I never know when I'll use something
+MathTimePro 2 is better at so it is logical to just always use the standard
+`times.sty` package with the `mtpro2.sty` for math regardless of what math is in
+the document.
 
 ### Space Mono Font
 
@@ -156,13 +179,14 @@ CTAN. I have installation instructions for that font here:
 
 When the `pdflatex` compiler detects `spacemono.sty` then it will use Space Mono
 as the monospace font. If it is not detected, it will use whatever monospace
-font is currently set (Courier if `times.sty` was loaded, otherwise the default
-Computer Modern monospace font).
+font is currently set (Courier if `times.sty` was loaded, otherwise the Latin
+Modern monospace fonts are used).
 
 ### Digital Signature Support
 
 This is only needed if you want to add a cryptographic digital signature to your
-fork of the manifesto.
+fork of the manifesto and that only happens when the `canonicalversion` macro is
+defined as `yes`.
 
 If the `pdflatex` compiler finds `digsig.sty` then it will load that file and
 include the `appendix/signature.tex` file which contains the form field allowing
@@ -212,10 +236,13 @@ The compiled result will be named `SocialistHousing.pdf`.
 Base 35 Postscript Font Notes
 -----------------------------
 
-The canonical version has the following Adobe Type 1 fonts embedded:
+The canonical version has font subsets from the following Adobe Type 1 fonts
+embedded:
 
 * Helvetica-Bold
 * Helvetica-Narrow
+* Helvetica-Narrow-Oblique
+* Helvetica-Narrow-Bold
 * Times-Roman
 * Times-Italic
 * Times-Bold
@@ -248,7 +275,7 @@ embedded *differently* than fonts used for regular content and I have yet to
 figure out how to get LaTeX to do that.
 
 From what I have read, PDF wants the *entire* font embedded rather than just a
-subset but also wants it embedded using a particular structure within the PDF
+subset but it also wants it embedded using a particular structure within the PDF
 file. Otherwise it will not be used in the form content.
 
 I suspect it requires some LaTeX macros that have not yet been written. Well, to
