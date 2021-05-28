@@ -164,8 +164,8 @@ the `times.sty` package really is noticeably better.
 MathTimePro 2 can beautifully typeset everything math those alternatives can
 typeset but the reverse is not the case and I never know when I'll use something
 MathTimePro 2 is better at so it is logical to just always use the standard
-`times.sty` package with the `mtpro2.sty` for math regardless of what math is in
-the document.
+`times.sty` package with the `mtpro2.sty` package for math regardless of what
+math is in the document.
 
 If you want to use the Times font and Math, use MathTimePro2 for the math font.
 It is the right way to do it, and in many cases it visually looks better. Use
