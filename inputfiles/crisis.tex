@@ -13,7 +13,11 @@ Without all three of those basic necessities, a human can not thrive and the ave
 The \textbf{Declaration of Independence} explicitly states:
 
 \begin{quote}
-{\fontfamily{pzc}\selectfont\large%
+{\ifthenelse{\equal{\usetexgyre}{yes}}{%
+\fontfamily{qzc}\selectfont\large%
+}{%
+\fontfamily{pzc}\selectfont\large%
+}%
 We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.}
 \end{quote}
 
