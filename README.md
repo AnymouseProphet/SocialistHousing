@@ -168,7 +168,7 @@ MathTimePro 2 is better at so it is logical to just always use the standard
 the document.
 
 If you want to use the Times font and Math, use MathTimePro2 for the math font.
-It is the right way to do it, and it many cases it visually looks better. Use
+It is the right way to do it, and in many cases it visually looks better. Use
 the free Lite version until you need the additional features of the paid
 version. It really is typographically better than the current CTAN hosted
 solutions that come bundled in TeXLive et alia.
