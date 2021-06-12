@@ -11,7 +11,14 @@ fi
 pdflatex SocialistHousing.tex && pdflatex SocialistHousing.tex
 
 # make non-canonical print version
-sed -e s?"^\\\newcommand{\\\canonicalversion}{yes}"?"\\\newcommand{\\\canonicalversion}{no}"? < SocialistHousing.tex > SocialistHousing-Print.tex
+#sed -e s?"^\\\newcommand{\\\canonicalversion}{yes}"?"\\\newcommand{\\\canonicalversion}{no}"? < SocialistHousing.tex > SocialistHousing-Print.tex
+
+cat SocialistHousing.tex \
+|sed -e s?"\[canonical\]"?"[]"? \
+|sed -e s?"\[canonical,"?"["? \
+|sed -e s?",canonical\]"?"]"? \
+|sed -e s?",canonical,"?","? \
+> SocialistHousing-Print.tex
 
 # three runs
 pdflatex SocialistHousing-Print.tex && pdflatex SocialistHousing-Print.tex && pdflatex SocialistHousing-Print.tex
