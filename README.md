@@ -108,12 +108,16 @@ packages that come with your distribution are probably sufficient.
 
 The manifesto *should* also compile in MacTeX, PCTeX, MiKTeX, et cetera.
 
-Originally I was working on the manifesto in TeXLive 2016. I tend not to upgrade
-to newer versions of TeXLive until I need something new or the version I am
-using is starting to get very old.
+The `anymouse.sty` file
+-----------------------
 
-I upgraded to TeXLive 2021 because TeXLive 2016 was starting to get very old.
-The code I used in the manifesto really is not very version picky.
+To compile this LaTeX you will need to install the `anymouse.sty` file in your
+`TEXMF-LOCAL` tree. You can get it from this github:
+
+[anymouse.sty](https://github.com/AnymouseProphet/anymouse)
+
+It should "just work" but there are some package options you may want to specify
+and there are some non-standard LaTeX packages you may wish to install.
 
 
 Preample Options
@@ -122,52 +126,9 @@ Preample Options
 Obviously you can make whatever changes in the preamble of your fork that floats
 your boat, but there are two pre-defined options.
 
-### Typeset Canonical Version
-
-Change the macro
-
-    \newcommand{\canonicalversion}{no}
-
-to
-
-    \newcommand{\canonicalversion}{yes}
-
-if you intend on including an ISBN number and optionally adding a cryptography
-digital signature to your fork. Digital signatures are discussed within the
-__Optional LaTeX Packages__ section of this document.
-
-### Main Body Font
-
-Some LaTeX users really like Donald Knuth's "Computer Modern" font.
-
-Computer Modern itself ends up as a bitmap font when used in a PDF and is thus
-not suitable for PDF but an updated vector postscript version called "Latin
-Modern" is suitable for PDF documents.
-
-If you would prefer to use "Latin Modern" over "Times" (or a Times clone) then
-change
-
-    \newcommand{\uselatinmodern}{no}
-
-to
-
-    \newcommand{\uselatinmodern}{yes}
-
-and the "Latin Modern" fonts will be used for the main body of the text. Note
-that this does *significantly* change the pagination, resulting in more pages of
-text as Latin Modern is not quite as compact as Times or Times Clones.
-
 ### Library of Congress
 
 If you have a LCCN for your fork, then change
-
-    \newcommand{\libraryofcongress}{no}
-
-to
-
-    \newcommand{\libraryofcongress}{yes}
-
-and also change
 
     \newcommand{\lccn}{987654321}
 
@@ -187,108 +148,8 @@ canonical version.
 Optional LaTeX Packages
 -----------------------
 
-The manifesto source should compile in virtually any modern LaTeX distribution
-however their are some __non-standard__ packages that were used to compile the
-canonical version of the original manifesto.
-
-All of these are optional, the manifesto compiles without them.
-
-### MathTime Pro 2 Lite
-
-This only matter when you are not using the "Computer Modern" fonts.
-
-This is a free LaTeX package for typesetting mathematical equations that match
-the Times font. It is available from:
-[MathTime Professional 2 Fonts](https://www.pctex.com/mtpro2.html).
-
-The free 'Lite' version is sufficient for the use of math in the manifesto.
-
-When the `pdflatex` compiler detects the style file for MathTime Pro 2 then it
-is instructed to load both `times.sty` (a standard package) and `mtpro2.sty`.
-
-When the `mtpro2.sty` file is not detected then the TeXGrye (Adobe 'Base35'
-clones but extended) fonts are loaded via the `newtxtext.sty` and `newtxtmath`
-(both standard, part of the
-[newtx](https://ctan.org/pkg/newtx?lang=en) package) packages.
-
-The TeXGyre fonts are *very* similar to the fonts you would get with both
-`times.sty` and `mtpro2.sty` but there may some *minor* pagination differences
-due to *slightly* different font metrics.
-
-For installing MathTime Pro 2 Lite follow the PCTeX install instructions if you
-want to compile the document typeset in Times. Otherwise, the TeXGrye family of
-extended clones will be used.
-
-If you like the TeXGyre family of clones (many do) then either do not install
-MathTime Pro 2 Lite or if it is already installed, in the preamble change
-
-    \IfFileExists{mtpro2.sty}{%
-
-to
-
-    \IfFileExists{FOOmtpro2.sty}{%
-
-Then the TeXGrye family of fonts will be used instead of the Adobe or URW 'Base
-35' family of fonts.
-
-#### For the plethora of n00bs who say `times.sty` should never be used:
-
-With high frequency on places like reddit, I see bad advice given to never use
-`times.sty` with claims that it is deprecated and that the *proper* way to get
-the Times font in LaTeX is to use `mathptmx.sty`.
-
-Look at the `times.sty` file, all it does is redefine `\sfdefault`,
-`\rmdefault`, and `\ttdefault`. That is literally __all that it does__. There is
-absolutely nothing about that to become "obsolete", the method it uses is the
-correct way to redefine those defaults.
-
-Social media is full of bad advice. The only issue with `times.sty` is that it
-does *not* redefine fonts to use for math, so the default Computer Modern math
-fonts ends up being used if you use `times.sty` and have math in your LaTeX
-*without* defining a Times compatible math font. That does look ugly, especially
-if you have any inline math.
-
-That issue is readily solved by using `mtpro2.sty` to define the math font after
-you load `times.sty` in your preamble. MathTime Pro 2 is superior to the math
-fonts defined by either `mathptmx.sty` or `newtxmath.sty`.
-
-Yes, the math in this document is light enough I could have used `mathptmx.sty`
-to get the Times font with matching math glyphs. But with many documents that
-use math, using `mtpro2.sty` in combination with the `times.sty` package really
-is noticeably better.
-
-MathTime Pro 2 can beautifully typeset everything math those alternatives can
-typeset but the reverse is not the case and I never know when I'll use something
-MathTime Pro 2 is better at so it is logical to just always use the standard
-`times.sty` package with the `mtpro2.sty` package for math with the Times font
-*regardless* of what math is in the document.
-
-If you want to use the Times font and Math, use MathTime Pro2 for the math font.
-__It is the visually best way to do it__ as evidenced by the fact that many
-academic journals use MathTime Pro 2.
-
-If you are making a profit or can afford it, buy the paid version and support
-PCTeX who maintains it. If you are poor, there is no shame in just using the
-free Lite version until you need the additional features of the paid version.
-
-MathTime Pro 2 really is typographically better for Math with Times than the
-current CTAN hosted solutions that come bundled in TeXLive et alia. It just is.
-
-### Space Mono Font
-
-I am not fond of the Courier font that is used as the monospace default when
-`times.sty` is loaded. I also do not like the t1xtt font that is used as the
-monospace default when `newtxtext.sty` is loaded. So I use Space Mono instead,
-a monospace font I do like.
-
-Space Mono is not *yet* available from CTAN. I have installation instructions
-for that font here:
-
-[Space Mono LaTeX Files](https://github.com/AnymouseProphet/SpaceMono-LaTeX)
-
-When the `pdflatex` compiler detects `spacemono.sty` then it will use Space Mono
-as the monospace font. If it is not detected, it will use whatever monospace
-font is currently set by the main font package.
+See the `README.md` file at (https://github.com/AnymouseProphet/anymouse) for
+optional packages the `anymouse` package may use if it finds.
 
 ### Digital Signature Support
 
@@ -341,85 +202,8 @@ thrice does not hurt.
 The compiled result will be named `SocialistHousing.pdf`.
 
 
-Base 35 Postscript Font Notes
------------------------------
-
-This section only applies if you are __not__ using Latin Modern and you __do__
-have the `mtpro2.sty` package. Without those conditions then your compiled
-version will obviously have different fonts than what my canonical version has.
-
-If you compile the LaTeX source yourself you may notice different font names are
-used in your resulting PDF file than what is used in the my canonical version.
-There is a reason for this.
-
-The Postscript Level 2 specification specifies 35 fonts that are often known as
-the 'Base 35' fonts.
-
-https://en.wikipedia.org/wiki/PostScript_fonts#Core_Font_Set
-
-Back in the days before storage and bandwidth were cheap, it was safe to save
-space in a document and not embed these fonts as long as the output device (e.g.
-printer) was a Postscript Level 2 compliant renderer.
-
-Note that Postscript Level 3 fonts is a mess that few adopted even though
-Postscript 3 was popular. They forgot KISS. Too many fonts and licensing issues,
-people who wanted to avoid embedding just stuck with the Level 2 fonts in their
-postscript 3 documents.
-
-Also note that PDF is not Postscript but all of the PDF 'Standard 14' fonts are
-part of the 'Base 35' Postscript Level 2 fonts and in the world of LaTeX we just
-use the 'Base 35' Postscript Level 2 fonts as our standard set because a LaTeX
-document can produce either Postscript or PDF (or DVI for old-school LaTeX in
-the days before Postscript).
-
-Now that file size and network bandwidth are no longer an issue it is standard
-to embed all fonts so that documents render properly *even if the output device
-is not a Postscript Level 2 compliant renderer*. Embedding the fonts really is
-better because otherwise some renderers will use substitutes that look just
-awful (e.g. substituting Arial for Helvetica).
-
-Embedding fonts can have font licensing issues. No font licensing issues for
-fonts exist in this manifesto.
-
-The canonical version of this manifesto has font subsets embedded from the
-following *genuine* Adobe 'Base 35' Type 1 fonts:
-
-* Helvetica-Bold
-* Helvetica-Narrow
-* Helvetica-Narrow-Oblique
-* Helvetica-Narrow-Bold
-* Times-Roman
-* Times-Italic
-* Times-Bold
-* Times-BoldItalic
-* ZapfChancery-MediumItalic
-
-This is because I happen to have the *actual* Adobe Type 1 fonts available for
-LaTeX to embed. During the late 90s I purchased the fonts as part of a bundle
-sold to students and it allows embedding the fonts in distributed documents.
-
-If you are not using Space Mono but Times is your main font, then the Adobe
-font Courier from the Base 35 collection would also be used.
-
-Unless you both have the *actual* Adobe Type 1 fonts *and* have set up LaTeX to
-use them, then your fork will use the free URW equivalents that ship with
-TeXLive or whatever LaTeX distribution you use.
-
-The URW equivalents are fully metric compatible and for the vast majority of us,
-they are visually indistinguishable from the Adobe versions. They are quality
-substitutes.
-
-The URW equivalents were designed when there was a clear need to implement
-Postscript Level 2 for those who did not have a license to the actual Adobe
-fonts. URW did an outstanding job with them and they are now common on 'NIX
-systems as part of
-[ghostscript](https://www.ghostscript.com/)
-and the URW fonts are also now distributed with most LaTeX distributions with
-the LaTeX postscript and PDF engines using them by default when 'Base35' fonts
-are requested. You have to specifically configure LaTeX to use the *genuine*
-'Base 35' fonts if you have them.
-
-### Adobe Helvetica Note
+Adobe Helvetica Note
+--------------------
 
 When you use Acrobat Reader DC to add a cryptographic signature, the software
 uses Helvetica but does not embed it.
