@@ -6,3 +6,8 @@
 *.toc
 SocialistHousing.pdf
 SocialistHousing-Print.tex
+# remove these from this file
+SocialistHousing.tex
+banking.tex
+remodel.tex
+empathy.tex
