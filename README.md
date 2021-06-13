@@ -66,7 +66,7 @@ When compiling a "Canonical" version, the `digsig.sty` LaTeX file is required to
 add the necessary PDF form field that you will then use to add the cryptographic
 signature.
 
-Instructions for generating a private/public keypair can be found at
+Instructions for generating a private/public key pair can be found at
 https://github.com/AnymouseProphet/anymouse/blob/main/keypair.md
 
 By default, the LaTeX preamble in `SocialistHousing.tex` will not compile a PDF
