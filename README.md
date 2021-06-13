@@ -212,8 +212,11 @@ including a non-canonical version suitable for printing.
 Adobe Helvetica Note
 --------------------
 
-When you use Acrobat Reader DC to add a cryptographic signature, the software
-uses the Helvetica font but does not embed it.
+With PDF desktop publishing, it is considered bad form to produce a document
+that does not have all of the fonts embedded.
+
+When you use Acrobat Reader DC to add a cryptographic signature, the Acrobat
+Reader DC software uses the Helvetica font but does not embed it.
 
 Thus far I have not been able to figure out how to get the font embedded into
 the PDF before signing---which means that the visual indication of the signature
