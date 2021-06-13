@@ -69,16 +69,17 @@ signature.
 Instructions for generating a private/public keypair can be found at
 https://github.com/AnymouseProphet/anymouse/blob/main/keypair.md
 
-By default, the LaTeX preamble in `SocialistHousing.tex` will compile a PDF file
-that is intended to be signed. If you do not want this, change
-
-    \usepackage[canonical]{anymouse}
-
-to
+By default, the LaTeX preamble in `SocialistHousing.tex` will not compile a PDF
+file that is intended to be signed. If you do want to sign it, change
 
     \usepackage[]{anymouse}
 
-and the resulting PDF file will not have the form field for a digital signature.
+to
+
+    \usepackage[canonical]{anymouse}
+
+and the resulting PDF file will have the form field for a digital signature,
+assuming you have the `digsig.sty` package file available to the LaTeX compiler.
 
 For other options to the `anymouse.sty` package, see
 https://github.com/AnymouseProphet/anymouse/blob/main/README.md
