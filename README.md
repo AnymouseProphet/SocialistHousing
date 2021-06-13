@@ -11,7 +11,8 @@ Forking the Manifesto
 
 The manifesto is released under the terms of the CC BY-NC 4.0 license (see the
 `LICENSE.txt` file) which---if the terms of the license are met---allows you to
-modify this manifesto (what I call a fork) and distribute your modified version.
+modify this manifesto (what I call forking) and distribute your modified
+version.
 
 Why anyone would want to? I do not *expect* anyone to, but you can.
 
@@ -22,7 +23,105 @@ manifesto with counter points showing how stupid I am.
 
 Whatever your reason, as long as the terms of the license are followed, it is
 allowed. For those who are able to work with LaTeX---having the LaTeX source
-available makes it a lot easier than copypasta from the PDF.
+available makes it a lot easier than
+[copypasta](https://en.wikipedia.org/wiki/Copypasta) from the PDF.
+
+### LaTeX Environment
+
+This manifesto will compile in TeXLive 2021 with the addition of the
+`anymouse.sty` file from the
+[anymouse LaTeX](https://github.com/AnymouseProphet/anymouse) git project. It
+should also compile in MacTeX, PCTeX, MiKTeX, et cetera.
+
+I do recommend a LaTeX version modern enough to have the TeX Gyre fonts but you
+can also use the URW (or Adobe) "Base 35" font collection instead of the TeX
+Gyre font collection---assuming you have
+[MathTime Pro 2](https://www.pctex.com/mtpro2.html) installed. The free "Lite"
+version is sufficient and note that MathTime Pro 2 is *only* needed to use the
+URW (or Adobe) "Base 35" font collection. You do not need MathTime Pro 2 to use
+the TeX Gyre font collection which is the default.
+
+If you want the same monospace font I use, you will also need to install
+[SpaceMono LaTeX](https://github.com/AnymouseProphet/SpaceMono-LaTeX) but that
+is optional, the manifesto builds just fine without it. I only use Space Mono
+because I like the aesthetics of it. My sense of aesthetics differs from many.
+
+### Canonical Definition
+
+Many people associate the word "Canonical" with "Authoritative". I do not. To me
+"Canonical" indicates a version of a document or collection that is vouched for
+by the maintainer of the canon. In the case of a manifesto with a license that
+specifically allows for modification, that maintainer would be whoever maintains
+the fork and "Canonical" would be a version that maintainer specifically vouches
+for with a cryptographic signature that allows the reader to verify that the
+maintainer vouches for the authenticity of that version.
+
+If you fork this manifesto, you may vouch for the authenticity of your fork so
+if you cryptographically sign your fork, that signed version is "Canonical" as
+long as you complied with the license terms for forking the document. I do not
+have to agree with your changes for your version to be "Canonical" as the
+license requires you to specify your changes in the document.
+
+When compiling a "Canonical" version, the `digsig.sty` LaTeX file is required to
+add the necessary PDF form field that you will then use to add the cryptographic
+signature.
+
+Instructions for generating a private/public keypair can be found at
+https://github.com/AnymouseProphet/anymouse/blob/main/keypair.md
+
+By default, the LaTeX preamble in `SocialistHousing.tex` will compile a PDF file
+that is intended to be signed. If you do not want this, change
+
+    \usepackage[canonical]{anymouse}
+
+to
+
+    \usepackage[]{anymouse}
+
+and the resulting PDF file will not have the form field for a digital signature.
+
+For other options to the `anymouse.sty` package, see
+https://github.com/AnymouseProphet/anymouse/blob/main/README.md
+
+If you do make a "Canonical" version you sign, note that you need to update the
+`signature.tex` file to include *your* public key.
+
+#### ISBN and LCCN
+
+If you want an ISBN number, it *must* be different than the ISBN number that I
+use. If you want a Library of Congress Catalog Number, first you need an ISBN
+number.
+
+When you have an ISBN number, change the `SocialistHousing.tex` preamble line
+
+    \newcommand{\isbn}{978-1-56619-909-3}
+
+to reflect *your* ISBN number __AND ALSO__ change the
+
+    \EANisbn[ISBN=978-1-56619-909-4,SC5b]
+
+line further down to reflect __YOUR__ ISBN number.
+
+After making those changes, when you compile the "Canonical" version of your
+fork, the ISBN bar code will be added to the title page.
+
+If you get a LCCN number, change
+
+    \newcommand{\lccn}{987654321}
+
+to reflect __YOUR__ LCCN number. Once changed, it will be added to the
+dedication page whenever you compile your fork, canonical or not.
+
+Remember that even minor changes to a document require a brand new ISBN number.
+That is why the ISBN is only added when a Canonical version is built. Minor
+changes do not require a new LCCN but for substantial changes, you probably
+should get a new LCCN.
+
+My philosophy is that every Canonical version has its own ISBN number with its
+own LCCN number. Non-Canonical versions do not have an ISBN number but will have
+the LCCN number associated with the Canonical version it references as the
+Canonical version.
+
 
 ### Translations
 
@@ -33,8 +132,8 @@ agregarle mi firma digital.
 
 ### The Changelog
 
-Within `SocialistHousing.tex` a macro called `\canonical` is defined. It expands
-to a URL to the canonical version of this manifesto. Leave that alone.
+Within `SocialistHousing.tex` a macro called `\original` is defined. It expands
+to a URL to *my* canonical version of this manifesto. Leave that alone.
 
 Within `appendix/changelog.tex` is a place for you to add a description of what
 changes you made, so that it is clear to the reader that those changes are yours
@@ -83,104 +182,9 @@ the manifesto.
 The `inputfiles` directory has the LaTeX source files for the non-appendix
 sections of the manifesto.
 
-The `assets` directory has the public cryptography key that the author uses to
-digitally sign PDF files, and some branches may have a PDF copy of the canonical
-version of the manifesto that is signed, and an unsigned copy of the PDF that
-only differs from the canonical version in that it lacks the __Digital
-Cryptography Signature__ appendix section. That copy is intended for printed
-versions where a digital cryptography signature is meaningless.
-
 Nothing in the `assets` directory is used to compile the manifesto. After you
 fork this git, you probably should delete everything in the `assets` directory
 as it will not pertain to your fork.
-
-
-TeXLive 2021
-------------
-
-The Canonical version of this manifesto was compiled using
-[TeXLive 2021](https://www.tug.org/texlive/)
-installed from their [Network Installer](https://www.tug.org/texlive/acquire-netinstall.html).
-
-Many (most?) GNU/Linux distributions come with a packaged version of TeXLive
-already. I still prefer to install it myself in `/usr/local/texlive` but the
-packages that come with your distribution are probably sufficient.
-
-The manifesto *should* also compile in MacTeX, PCTeX, MiKTeX, et cetera.
-
-The `anymouse.sty` file
------------------------
-
-To compile this LaTeX you will need to install the `anymouse.sty` file in your
-`TEXMF-LOCAL` tree. You can get it from this github:
-
-[anymouse.sty](https://github.com/AnymouseProphet/anymouse)
-
-It should "just work" but there are some package options you may want to specify
-and there are some non-standard LaTeX packages you may wish to install.
-
-
-Preample Options
-----------------
-
-Obviously you can make whatever changes in the preamble of your fork that floats
-your boat, but there are two pre-defined options.
-
-### Library of Congress
-
-If you have a LCCN for your fork, then change
-
-    \newcommand{\lccn}{987654321}
-
-to define *your* LCCN number. This will typeset the LCCN on the dedication page.
-
-### ISBN Number
-
-If you have an ISBN number for your fork, then change
-
-    \usepackage[ISBN=978-1-56619-909-4,SC0]{ean13isbn}
-
-to reflect *your* ISBN number. The proper barcode for your ISBN number will be
-generated by the `pdflatex` engine at compile time, but only when compiling the
-canonical version.
-
-
-Optional LaTeX Packages
------------------------
-
-See the `README.md` file at (https://github.com/AnymouseProphet/anymouse) for
-optional packages the `anymouse` package may use if it finds.
-
-### Digital Signature Support
-
-This is only needed if you want to add a cryptographic digital signature to your
-fork of the manifesto and that only happens when the `canonicalversion` macro is
-defined as `yes`.
-
-If the `pdflatex` compiler finds `digsig.sty` then it will load that file and
-include the `appendix/signature.tex` file which contains the form field allowing
-you to add a cryptographic digital signature.
-
-To the best of my knowledge, at this time `pdflatex` and LaTeX in general are
-not able to add the signature themselves but you can open the compiled document
-in [Acrobat Reader DC](https://acrobat.adobe.com/us/en/acrobat/pdf-reader.html)
-to add your digital signature. Scroll to the end of the document and click the
-thing that looks like a pencil where the __Visual Indication of Signature:__
-heading is.
-
-If you do not already have a cryptography key pair you use for signing PDF
-documents, how to generate one is in the file `keypair.md`.
-
-Remember to update the `appendix/signature.tex` file to tell the user how they
-can obtain YOUR public key.
-
-If you do not want to bother with digital signatures, do not worry about having
-this file but if you do want to sign your fork, get the `digsig.sty` file from:
-
-http://home.htp-tel.de/lottermose2/tex/dist/digsig.sty
-
-Place it at `[TEXMF-LOCAl]/tex/latex/digsig/digsig.sty` and then run the
-`mktexlsr` command so that `pdflatex` will know about it.
 
 
 Compiling the Manifesto
@@ -200,6 +204,9 @@ In reality running the command twice in succession should be sufficient but
 thrice does not hurt.
 
 The compiled result will be named `SocialistHousing.pdf`.
+
+There is a shell script called `build.sh` that will build the files for you,
+including a non-canonical version suitable for printing.
 
 
 Adobe Helvetica Note
