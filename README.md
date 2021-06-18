@@ -14,7 +14,8 @@ The manifesto is released under the terms of the CC BY-NC 4.0 license (see the
 modify this manifesto (what I call forking) and distribute your modified
 version.
 
-Why anyone would want to? I do not *expect* anyone to, but you can.
+Why anyone would want to create a modified version? I do not *expect* anyone to,
+but you can.
 
 Maybe you want to add details about plumbing best practices to the __House
 Retrofitting__ section. Maybe you want to clarify some of my points that are a
@@ -31,7 +32,8 @@ available makes it a lot easier than
 This manifesto will compile in TeXLive 2021 with the addition of the
 `anymouse.sty` file from the
 [anymouse LaTeX](https://github.com/AnymouseProphet/anymouse) git project. It
-should also compile in MacTeX, PCTeX, MiKTeX, et cetera.
+should also compile in MacTeX, PCTeX, MiKTeX, et cetera of course also requiring
+that style file.
 
 I do recommend a LaTeX version modern enough to have the TeX Gyre fonts but you
 can also use the URW (or Adobe) "Base 35" font collection instead of the TeX
@@ -95,16 +97,12 @@ number.
 
 When you have an ISBN number, change the `SocialistHousing.tex` preamble line
 
-    \newcommand{\isbn}{978-1-56619-909-3}
+    \newcommand{\isbn}{978-1-56619-909-4}
 
-to reflect *your* ISBN number __AND ALSO__ change the
+to reflect your ISBN number.
 
-    \EANisbn[ISBN=978-1-56619-909-4,SC5b]
-
-line further down to reflect __YOUR__ ISBN number.
-
-After making those changes, when you compile the "Canonical" version of your
-fork, the ISBN bar code will be added to the title page.
+After making that change, when you compile the "Canonical" version of your fork,
+the ISBN bar code will be added to the title page.
 
 If you get a LCCN number, change
 
@@ -232,8 +230,8 @@ From what I have read, PDF wants the *entire* font embedded rather than just a
 subset but it also wants it embedded using a particular structure within the PDF
 file. Otherwise it will not be used in the form content.
 
-I suspect it requires some LaTeX macros that have not yet been written. Well, to
-do it in LaTeX anyway.
+I suspect it requires some LaTeX engine code that has not yet been written.
+Well, to do it in LaTeX anyway.
 
 Hevetica is part of the 'Standard 14' PDF fonts so every PDF renderer will have
 an adequate metric-compatible substitute, but it just might be an ugly
