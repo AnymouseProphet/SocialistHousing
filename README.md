@@ -235,7 +235,8 @@ Well, to do it in LaTeX anyway.
 
 Hevetica is part of the 'Standard 14' PDF fonts so every PDF renderer will have
 an adequate metric-compatible substitute, but it just might be an ugly
-substitute.
+substitute. If I could choose the font, I would actually use either TeX Gyre
+HerosCondensed-Regular or Adobe Helvetica-Narrow.
 
 It would be nice if Acrobat Reader DC would embed the font it uses for visual
 indication when signing the document. But it doesn't. Maybe one of their
